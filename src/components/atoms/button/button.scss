@@ -1,0 +1,47 @@
+@use "/src/utils/styles/colors.scss";
+
+.Button-root {
+  border: none;
+  display: flex;
+  gap: 9px;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 6px 6px colors.$sky-500 10;
+  box-sizing: border-box;
+  cursor: pointer;
+  position: relative;
+  font-weight: 500;
+  font-size: 16px;
+  padding: 7px 15px;
+  width: fit-content;
+  min-height: 46px;
+
+  &.primary {
+    background-color: transparent;
+    border: 1px solid colors.$sky-500;
+    color: colors.$slate-900;
+  }
+
+  &.secondary {
+    background-color: transparent;
+    border: 1px solid colors.$sky-500;
+    color: #fff;
+  }
+
+  &:hover {
+    background-color: colors.$sky-500;
+    color: #fff;
+  }
+  &:disabled {
+    background-color: colors.$slate-300;
+    border: 1px solid colors.$slate-400;
+    color: colors.$slate-400;
+    cursor: not-allowed;
+  }
+
+  .Button-start-icon,
+  .Button-end-icon {
+    display: flex;
+  }
+  transition: 0.2s ease all;
+}
