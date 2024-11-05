@@ -376,6 +376,7 @@
     flex-direction: column;
     justify-content: center;
     gap: 80px;
+    padding: 40px;
     .cardInfoImage {
       position: relative;
       transform: translateY(-100px);
@@ -418,7 +419,10 @@
         justify-content: center;
         > svg {
           padding: 40px;
-          width: 200px;
+          width: 180px;
+          @include screen.breakpoint-md {
+            width: 200px;
+          }
         }
       }
     }
