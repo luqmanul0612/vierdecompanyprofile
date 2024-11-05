@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import heroImageSection1 from "@/assets/images/homepage-hero-image-1-opt.jpg";
 import employeeImage1 from "@/assets/images/image-employee-1.jpg";
 import employeeImage2 from "@/assets/images/image-employee-2.jpg";
+import employeeImage3 from "@/assets/images/image-employee-3.jpg";
 import employeeProfile1 from "@/assets/images/image-employee-profile-1.jpg";
 import employeeProfile2 from "@/assets/images/image-employee-profile-2.jpg";
 import employeeProfile3 from "@/assets/images/image-employee-profile-3.jpg";
@@ -14,6 +15,7 @@ import { ArrowRight, ChevronRight } from "lucide-react";
 import { services } from "@/constants/config";
 import TextContent from "@/components/molecules/text-quote";
 import clsx from "clsx";
+import CardInfoImage from "@/components/molecules/card-info-image";
 
 const HomeContainer = () => {
   const router = useRouter();
@@ -227,6 +229,29 @@ const HomeContainer = () => {
               </div>
             </div>
           </div>
+        </div>
+      </div>
+      <div className={classNames.section6}>
+        <div className={classNames.content}>
+          <CardInfoImage
+            title="FREE IT AUDIT"
+            subTitle="Arrange Your Free IT Audit"
+            description={
+              <>
+                Want to discover if your systems are operating efficiently, your
+                assets are safely protected and your IT is contributing to your
+                business objectives? <br />
+                <br />
+                Arrange a free, no obligation IT audit today.
+              </>
+            }
+            image={employeeImage3}
+            className={classNames.cardInfoImage}
+            button={{
+              label: "Arrage Audit",
+              onClick: () => {},
+            }}
+          />
         </div>
       </div>
     </>

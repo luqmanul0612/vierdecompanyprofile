@@ -1,0 +1,41 @@
+@use "/src/utils/styles/colors.scss";
+
+.main {
+  display: flex;
+  width: 100%;
+  .info {
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+    padding: 40px;
+    background-color: colors.$slate-800;
+    > p:nth-child(1) {
+      font-family: var(--font-open-sans);
+      font-size: 15px;
+      font-weight: 600;
+      margin: 0;
+      color: colors.$sky-500;
+    }
+    > p:nth-child(2) {
+      font-family: var(--font-open-sans);
+      font-size: 42px;
+      font-weight: 700;
+      margin: 0;
+      color: #fff;
+    }
+    > p:nth-child(3) {
+      font-size: 17px;
+      margin: 0;
+      margin-top: 20px;
+      line-height: 1.8;
+      color: colors.$slate-100;
+    }
+    .button {
+      margin-top: 40px;
+    }
+  }
+  .image {
+    position: relative;
+    width: 100%;
+  }
+}
