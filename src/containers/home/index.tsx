@@ -8,6 +8,13 @@ import employeeImage3 from "@/assets/images/image-employee-3.jpg";
 import employeeProfile1 from "@/assets/images/image-employee-profile-1.jpg";
 import employeeProfile2 from "@/assets/images/image-employee-profile-2.jpg";
 import employeeProfile3 from "@/assets/images/image-employee-profile-3.jpg";
+import Partnership1 from "@/assets/icons/partnership-1.svg";
+import Partnership2 from "@/assets/icons/partnership-2.svg";
+import Partnership3 from "@/assets/icons/partnership-3.svg";
+import Partnership4 from "@/assets/icons/partnership-4.svg";
+import Partnership5 from "@/assets/icons/partnership-5.svg";
+import Partnership6 from "@/assets/icons/partnership-6.svg";
+import Partnership7 from "@/assets/icons/partnership-7.svg";
 import Button from "@/components/atoms/button";
 import classNames from "./home.module.scss";
 import Image from "next/image";
@@ -252,6 +259,24 @@ const HomeContainer = () => {
               onClick: () => {},
             }}
           />
+          <div className={classNames.partnership}>
+            <p className={classNames.title}>OUR PARTNERSHIPS</p>
+            <p className={classNames.subTitle}>We Partner With Only The Best</p>
+            <p className={classNames.description}>
+              We take a lot of care over the suppliers we work with because we
+              know our clients rely on us as their trusted and impartial
+              technology advisor.
+            </p>
+            <div className={classNames.images}>
+              <Partnership1 />
+              <Partnership2 />
+              <Partnership3 />
+              <Partnership4 />
+              <Partnership5 />
+              <Partnership6 />
+              <Partnership7 />
+            </div>
+          </div>
         </div>
       </div>
     </>

@@ -9,6 +9,8 @@ import Logo from "@/assets/images/company-logo.webp";
 import { FC } from "react";
 import { footerData } from "@/constants/config";
 import { useRouter } from "next/navigation";
+import TextField from "@/components/atoms/textfield";
+import Button from "@/components/atoms/button";
 
 const links = [
   {
@@ -31,6 +33,21 @@ const links = [
 const Footer = () => {
   return (
     <footer className={classNames.main}>
+      <div className={classNames.stayUpdate}>
+        <div>
+          <div className={classNames.textWrapper}>
+            <p className={classNames.title}>Stay up to date</p>
+            <p className={classNames.description}>
+              Sign up to our e-newsletter and get bite-sized tech tips, our
+              latest news and industry insights.
+            </p>
+          </div>
+          <div className={classNames.inputWrapper}>
+            <TextField placeholder="Your email address" />
+            <Button variant="secondary">Next</Button>
+          </div>
+        </div>
+      </div>
       <div className={classNames.content}>
         <div>
           <div className={classNames.contentLeft}>

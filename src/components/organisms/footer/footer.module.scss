@@ -5,6 +5,41 @@
   display: flex;
   flex-direction: column;
   width: 100%;
+  .stayUpdate {
+    display: flex;
+    justify-content: center;
+    background-color: colors.$slate-500;
+    padding: 80px 0;
+    > div {
+      @include screen.main;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      .textWrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        .title {
+          font-size: 42px;
+          font-weight: 700;
+          font-family: var(--font-open-sans);
+          margin: 0;
+          color: #fff;
+        }
+        .description {
+          font-size: 17px;
+          margin: 0;
+          line-height: 1.8;
+          color: #fff;
+        }
+      }
+      .inputWrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+    }
+  }
   .content {
     display: flex;
     justify-content: center;

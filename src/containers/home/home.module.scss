@@ -373,11 +373,54 @@
     @include screen.main;
     height: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     gap: 80px;
     .cardInfoImage {
       position: relative;
       transform: translateY(-100px);
+    }
+    .partnership {
+      display: flex;
+      flex-direction: column;
+      .title {
+        font-size: 15px;
+        font-family: var(--font-open-sans);
+        color: colors.$sky-500;
+        margin: 0;
+        font-weight: 600;
+        text-align: center;
+        z-index: 1;
+      }
+      .subTitle {
+        font-size: 42px;
+        font-weight: 700;
+        font-family: var(--font-open-sans);
+        color: colors.$slate-700;
+        margin: 0;
+        text-align: center;
+        z-index: 1;
+      }
+      .description {
+        font-size: 17px;
+        color: colors.$slate-500;
+        margin: 0;
+        text-align: center;
+        margin-top: 20px;
+        z-index: 1;
+      }
+      .images {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 40px;
+        gap: 40px;
+        align-items: center;
+        justify-content: center;
+        > svg {
+          padding: 40px;
+          width: 200px;
+        }
+      }
     }
   }
 }
