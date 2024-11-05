@@ -34,6 +34,10 @@
       left: 0;
       top: 0;
       background-color: #000000;
+      opacity: 0.5;
+      @include screen.breakpoint-lg {
+        opacity: 0;
+      }
     }
     .text {
       font-size: 40px;
@@ -43,6 +47,7 @@
       @include screen.breakpoint-lg {
         font-size: 60px;
       }
+      z-index: 2;
     }
     .description {
       font-size: 16px;
@@ -54,12 +59,14 @@
         font-size: 18px;
         max-width: 50%;
       }
+      z-index: 2;
     }
     .buttonWrapper {
       display: flex;
       flex-wrap: wrap;
       gap: 20px;
       margin-top: 40px;
+      z-index: 2;
     }
   }
 }
