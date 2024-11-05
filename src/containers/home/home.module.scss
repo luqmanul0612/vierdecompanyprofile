@@ -21,24 +21,43 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding: 0 40px;
     padding-top: 80px;
+    box-sizing: border-box;
     z-index: 1;
+    width: 100%;
+    &::before {
+      content: "";
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      background-color: #000000;
+    }
     .text {
-      font-size: 60px;
+      font-size: 40px;
       font-weight: 700;
       color: #fff;
       margin: 0;
+      @include screen.breakpoint-lg {
+        font-size: 60px;
+      }
     }
     .description {
-      font-size: 18px;
+      font-size: 16px;
       color: #fff;
-      max-width: 50%;
       line-height: 1.7;
       margin: 0;
       margin-top: 20px;
+      @include screen.breakpoint-lg {
+        font-size: 18px;
+        max-width: 50%;
+      }
     }
     .buttonWrapper {
       display: flex;
+      flex-wrap: wrap;
       gap: 20px;
       margin-top: 40px;
     }
@@ -112,6 +131,7 @@
     padding: 120px 40px;
     box-sizing: border-box;
     position: relative;
+    overflow: hidden;
     .bgText {
       position: absolute;
       top: 20px;
