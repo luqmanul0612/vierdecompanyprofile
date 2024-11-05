@@ -56,24 +56,41 @@
     @include screen.main;
     height: 100%;
     display: flex;
+    flex-direction: column-reverse;
     justify-content: center;
-    gap: 80px;
+    align-items: center;
+    gap: 40px;
+    padding: 40px;
+    box-sizing: border-box;
+    @include screen.breakpoint-xl {
+      flex-direction: row;
+      align-items: normal;
+      gap: 100px;
+    }
     .illustration {
       border-radius: 3px;
       overflow: hidden;
       min-width: 520px;
+      width: 100%;
       min-height: 570px;
+      height: 570px;
       position: relative;
       box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
         rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+      @include screen.breakpoint-xl {
+        min-width: 520px;
+        width: 520px;
+      }
     }
     .contentSection {
       display: flex;
       height: 100%;
-      max-width: 520px;
+      width: 100%;
+      @include screen.breakpoint-xl {
+        max-width: 520px;
+      }
       height: 570px;
-      padding: 20px 20px;
-      padding-left: 40px;
+      padding: 20px;
       box-sizing: border-box;
       align-items: center;
     }
@@ -92,18 +109,23 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 120px 0;
+    padding: 120px 40px;
+    box-sizing: border-box;
     position: relative;
     .bgText {
       position: absolute;
       top: 20px;
-      font-size: 150px;
+      font-size: 100px;
       font-weight: 700;
       font-family: var(--font-open-sans);
       color: #c5d2dd23;
+      min-width: max-content;
       margin: 0;
       text-align: center;
       z-index: 1;
+      @include screen.breakpoint-lg {
+        font-size: 150px;
+      }
     }
     .title {
       font-size: 15px;
@@ -190,25 +212,42 @@
     @include screen.main;
     height: 100%;
     display: flex;
+    flex-direction: column-reverse;
     justify-content: center;
-    gap: 80px;
+    align-items: center;
+    gap: 40px;
+    padding: 40px;
+    box-sizing: border-box;
+    @include screen.breakpoint-xl {
+      flex-direction: row;
+      align-items: normal;
+      gap: 100px;
+    }
     .illustration {
       border-radius: 3px;
       overflow: hidden;
       min-width: 520px;
+      width: 100%;
       min-height: 570px;
+      height: 570px;
       position: relative;
       box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
         rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+      @include screen.breakpoint-xl {
+        min-width: 520px;
+        width: 520px;
+      }
     }
     .contentSection {
       display: flex;
       flex-direction: column;
       height: 100%;
-      max-width: 520px;
+      width: 100%;
+      @include screen.breakpoint-xl {
+        max-width: 520px;
+      }
       height: 570px;
-      padding: 20px 20px;
-      padding-left: 40px;
+      padding: 20px;
       box-sizing: border-box;
       .whyList {
         display: flex;
@@ -252,33 +291,43 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 120px 0;
+    padding: 120px 40px;
+    box-sizing: border-box;
     position: relative;
+    overflow: hidden;
     .bgText {
       position: absolute;
       top: 20px;
-      font-size: 150px;
+      font-size: 100px;
       font-weight: 700;
       font-family: var(--font-open-sans);
       color: #c5d2dd23;
       margin: 0;
       text-align: center;
       z-index: 1;
+      @include screen.breakpoint-lg {
+        font-size: 150px;
+      }
     }
     .testimonialWrapper {
       display: grid;
       width: 100%;
       gap: 40px;
-      grid-template-columns: 1fr 1fr;
-      grid-template-areas:
-        "content1 content2"
-        "content1 content2"
-        "content3 content2"
-        "content3 content2"
-        "content3 content4"
-        "content3 content4"
-        "content5 content4"
-        "content5 content4";
+      display: flex;
+      flex-direction: column;
+      @include screen.breakpoint-lg {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+          "content1 content2"
+          "content1 content2"
+          "content3 content2"
+          "content3 content2"
+          "content3 content4"
+          "content3 content4"
+          "content5 content4"
+          "content5 content4";
+      }
     }
     .textContent {
       grid-area: content1;
@@ -376,7 +425,8 @@
     flex-direction: column;
     justify-content: center;
     gap: 80px;
-    padding: 40px;
+    box-sizing: border-box;
+    padding: 0 40px;
     .cardInfoImage {
       position: relative;
       transform: translateY(-100px);
@@ -384,6 +434,7 @@
     .partnership {
       display: flex;
       flex-direction: column;
+      padding: 0 40px;
       .title {
         font-size: 15px;
         font-family: var(--font-open-sans);

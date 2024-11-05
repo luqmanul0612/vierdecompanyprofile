@@ -1,13 +1,24 @@
 @use "/src/utils/styles/colors.scss";
+@use "/src/utils/styles/screen.scss";
 
 .main {
   display: flex;
+  flex-direction: column;
   width: 100%;
+  @include screen.breakpoint-md {
+    flex-direction: row;
+  }
   .info {
     display: flex;
     flex-direction: column;
-    max-width: 300px;
+    width: 100%;
+    min-width: auto;
     padding: 40px;
+    box-sizing: border-box;
+    @include screen.breakpoint-md {
+      min-width: 400px;
+      width: 400px;
+    }
     background-color: colors.$slate-800;
     > p:nth-child(1) {
       font-family: var(--font-open-sans);
@@ -37,5 +48,9 @@
   .image {
     position: relative;
     width: 100%;
+    height: 300px;
+    @include screen.breakpoint-md {
+      height: auto;
+    }
   }
 }
