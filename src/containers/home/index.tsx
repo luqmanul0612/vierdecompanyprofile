@@ -55,7 +55,13 @@ const HomeContainer = () => {
       <div className={classNames.section2}>
         <div className={classNames.content}>
           <div className={classNames.illustration}>
-            <Image src={employeeImage1} alt="logo" fill objectFit="cover" />
+            <Image
+              src={employeeImage1}
+              alt="logo"
+              fill
+              objectFit="cover"
+              objectPosition="center"
+            />
           </div>
           <div className={classNames.contentSection}>
             <TextContent
@@ -112,7 +118,13 @@ const HomeContainer = () => {
       <div className={classNames.section4}>
         <div className={classNames.content}>
           <div className={classNames.illustration}>
-            <Image src={employeeImage2} alt="logo" fill objectFit="cover" />
+            <Image
+              src={employeeImage2}
+              alt="logo"
+              fill
+              objectFit="cover"
+              objectPosition="center"
+            />
           </div>
           <div className={classNames.contentSection}>
             <TextContent

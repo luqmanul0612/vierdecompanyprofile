@@ -12,9 +12,13 @@
     padding: 80px 40px;
     > div {
       @include screen.main;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
       gap: 40px;
+      display: flex;
+      flex-direction: column;
+      @include screen.breakpoint-md {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
       .textWrapper {
         display: flex;
         flex-direction: column;
