@@ -1,33 +1,31 @@
 "use client";
 
-import { ChevronDown, Search } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import classNames from "./navbar.module.scss";
 import Image from "next/image";
 import Logo from "@/assets/images/company-logo.webp";
 import { navbarMenu } from "@/constants/config";
 import * as NavigationMenu from "@radix-ui/react-navigation-menu";
-import React, { FC } from "react";
+import React, { FC, useEffect } from "react";
 import { Unarray } from "@/utils/styles/types";
 import { useRouter } from "next/navigation";
+import clsx from "clsx";
 
 const Navbar = () => {
+  const [active, setActive] = React.useState(false);
+  useEffect(() => {
+    if (window.scrollY > 90) setActive(true);
+    else setActive(false);
+    document.addEventListener("scroll", () => {
+      if (window.scrollY > 90) setActive(true);
+      else setActive(false);
+    });
+  }, []);
+
   const router = useRouter();
   return (
-    <div className={classNames.main}>
+    <div className={clsx(classNames.main, { [classNames.active]: active })}>
       <div className={classNames.content}>
-        <div className={classNames.info}>
-          <div>
-            <div className={classNames.contentLeft}>
-              Enquiries <span>0330 056 2233</span>
-            </div>
-            <div className={classNames.contentRight}>
-              Need Support?
-              <span>
-                <Search />
-              </span>
-            </div>
-          </div>
-        </div>
         <div className={classNames.navbar}>
           <div>
             <div className={classNames.logo} onClick={() => router.push("/")}>
@@ -60,6 +58,12 @@ const Navbar = () => {
 export default Navbar;
 
 const NavigationMenuItem: FC<Unarray<typeof navbarMenu>> = (props) => {
+  const router = useRouter();
+  const onClickItem = () => {
+    if (!props.items?.length) {
+      router.push(props.path);
+    }
+  };
   if (props.items?.length)
     return (
       <NavigationMenu.Item className={classNames.NavigationMenuItem}>
@@ -77,7 +81,7 @@ const NavigationMenuItem: FC<Unarray<typeof navbarMenu>> = (props) => {
     );
   return (
     <NavigationMenu.Link className={classNames.NavigationMenuLink} asChild>
-      <div>{props.name}</div>
+      <div onClick={onClickItem}>{props.name}</div>
     </NavigationMenu.Link>
   );
 };

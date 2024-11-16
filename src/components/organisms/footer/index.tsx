@@ -1,50 +1,26 @@
 "use client";
 
 import classNames from "./footer.module.scss";
-import FacebookIcon from "@/assets/icons/facebook.svg";
 import LinkedInIcon from "@/assets/icons/linkedin.svg";
-import XIcon from "@/assets/icons/x-logo.svg";
 import Image from "next/image";
 import Logo from "@/assets/images/company-logo.webp";
-import { FC } from "react";
-import { footerData } from "@/constants/config";
 import { useRouter } from "next/navigation";
 import TextField from "@/components/atoms/textfield";
 import Button from "@/components/atoms/button";
-
-const links = [
-  {
-    name: "Linkedin",
-    icon: <LinkedInIcon />,
-    path: "#",
-  },
-  {
-    name: "X",
-    icon: <XIcon />,
-    path: "#",
-  },
-  {
-    name: "Facebook",
-    icon: <FacebookIcon />,
-    path: "#",
-  },
-];
+import { Mail, MapPin, Phone } from "lucide-react";
 
 const Footer = () => {
+  const router = useRouter();
   return (
     <footer className={classNames.main}>
       <div className={classNames.stayUpdate}>
         <div>
           <div className={classNames.textWrapper}>
-            <p className={classNames.title}>Stay up to date</p>
-            <p className={classNames.description}>
-              Sign up to our e-newsletter and get bite-sized tech tips, our
-              latest news and industry insights.
-            </p>
+            <p className={classNames.title}>Subscribe Now</p>
           </div>
           <div className={classNames.inputWrapper}>
-            <TextField placeholder="Your email address" />
-            <Button variant="secondary">Next</Button>
+            <TextField placeholder="Your mail..." />
+            <Button>Subscribe</Button>
           </div>
         </div>
       </div>
@@ -58,37 +34,74 @@ const Footer = () => {
               className={classNames.logo}
             />
             <p className={classNames.text}>
-              Aztek is one of the UK&apos;s leading and most progressive Managed
-              Service Providers, providing customer-focused IT, Cyber Security
-              and Communications solutions to help transform and grow your
-              business.
+              All Content on this website is protected by copyright and may not
+              be used without permission from VIERDE Innovation Labs Pte.Ltd.
             </p>
+            <div className={classNames.buttonWrapper}>
+              <button>
+                <Phone size={20} />
+              </button>
+              <button>
+                <LinkedInIcon />
+              </button>
+              <button>
+                <Mail size={20} />
+              </button>
+            </div>
           </div>
           <div className={classNames.contentRight}>
-            <MenuList
-              title={footerData.services.title}
-              items={footerData.services.items}
-            />
-            <MenuList
-              title={footerData.about.title}
-              items={footerData.about.items}
-            />
-            <MenuList
-              title={footerData.helpSupport.title}
-              items={footerData.helpSupport.items}
-            />
-          </div>
-        </div>
-      </div>
-      <div className={classNames.info}>
-        <div>
-          <p>© 2024 Aztek. Managed IT Support & Communications.</p>
-          <div className={classNames.links}>
-            {links.map((item) => (
-              <div key={item.name} className={classNames.linkItem}>
-                {item.icon}
-              </div>
-            ))}
+            <div className={classNames.menuList}>
+              <p className={classNames.title}>Company</p>
+              <ul>
+                <li
+                  className={classNames.linkItem}
+                  onClick={() => router.push("/about-us")}
+                >
+                  <p>About Us</p>
+                </li>
+                <li
+                  className={classNames.linkItem}
+                  onClick={() => router.push("/about-us")}
+                >
+                  <p>Product & Solution</p>
+                </li>
+                <li
+                  className={classNames.linkItem}
+                  onClick={() => router.push("/about-us")}
+                >
+                  <p>Partnership</p>
+                </li>
+              </ul>
+            </div>
+            <div className={classNames.menuList}>
+              <p className={classNames.title}>Contact</p>
+              <ul>
+                <li>
+                  <div className={classNames.icon}>
+                    <Phone size={18} />
+                  </div>
+                  <p>+65 8335 0738</p>
+                </li>
+                <li>
+                  <div className={classNames.icon}>
+                    <Mail size={18} />
+                  </div>
+                  <p>cs@vierde.sg</p>
+                </li>
+                <li>
+                  <div className={classNames.icon}>
+                    <MapPin size={18} />
+                  </div>
+                  <p>
+                    10 Anson Road #22-02 Internasional Plaza Singapore 079903{" "}
+                    <br />
+                    <br />
+                    250 North Bridge Road #12-02 Raffles City Tower Singapore
+                    179101
+                  </p>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
@@ -96,24 +109,3 @@ const Footer = () => {
   );
 };
 export default Footer;
-
-type MenuListProps = {
-  title: string;
-  items: { name: string; path: string }[];
-};
-
-const MenuList: FC<MenuListProps> = ({ items, title }) => {
-  const router = useRouter();
-  return (
-    <div className={classNames.menuList}>
-      <p className={classNames.title}>{title}</p>
-      <ul>
-        {items.map((item) => (
-          <li key={item.path} onClick={() => router.push(item.path)}>
-            {item.name}
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-};

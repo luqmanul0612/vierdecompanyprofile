@@ -1,6 +1,6 @@
 @use "/src/utils/styles/colors.scss";
 
-.TextField-root {
+.TextArea-root {
   display: flex;
   flex-direction: column;
   > label {
@@ -16,22 +16,23 @@
   &.disabled > label {
     color: colors.$slate-300;
   }
-  .TextField-input-wrapper {
+  .TextArea-input-wrapper {
     display: flex;
     position: relative;
     width: 100%;
-    > input {
+    > textarea {
       font-size: 15px;
       font-weight: 400;
       width: 100%;
       color: colors.$slate-700;
       outline: none;
-      padding: 0 10px;
+      padding: 10px;
       resize: none;
       padding-right: 35px;
       height: 50px;
       box-sizing: border-box;
       border: none;
+      min-height: 100px;
       border: 1px solid colors.$slate-300;
       &::placeholder {
         color: colors.$slate-500;
@@ -99,65 +100,13 @@
       }
       transition: 0.2s filter ease-in-out, 0.2s opacity ease-in-out;
     }
-    > input:placeholder-shown + .close-icon {
+    > textarea:placeholder-shown + .close-icon {
       opacity: 0;
       pointer-events: none;
     }
-    > input:disabled + .close-icon {
+    > textarea:disabled + .close-icon {
       opacity: 0;
       pointer-events: none;
-    }
-    .start-icon,
-    .end-icon {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 40px;
-      height: 46px;
-      position: absolute;
-      .password-toggle {
-        margin: 0;
-        background-color: transparent;
-        border: 0;
-        outline: none;
-        padding: 0;
-        border-radius: 8px;
-        height: 35px;
-        width: 35px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        > svg path {
-          stroke: colors.$slate-500;
-        }
-        &:hover {
-          background-color: colors.$slate-300;
-        }
-        &:disabled {
-          background-color: colors.$slate-200;
-          > svg,
-          > svg path {
-            stroke: colors.$slate-300;
-          }
-        }
-        transition: 0.2s background-color ease-in-out;
-      }
-    }
-    .start-icon {
-      left: 2px;
-      & ~ input {
-        padding-left: 42px;
-      }
-    }
-    .end-icon {
-      right: 2px;
-      & ~ .close-icon {
-        right: 42px;
-      }
-      & ~ input {
-        padding-right: 67px;
-      }
     }
   }
   .helpertext {

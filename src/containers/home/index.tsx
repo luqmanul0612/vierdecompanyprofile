@@ -1,293 +1,259 @@
 "use client";
 
-import { useRouter } from "next/navigation";
-import heroImageSection1 from "@/assets/images/homepage-hero-image-1-opt.jpg";
-import employeeImage1 from "@/assets/images/image-employee-1.jpg";
-import employeeImage2 from "@/assets/images/image-employee-2.jpg";
-import employeeImage3 from "@/assets/images/image-employee-3.jpg";
-import employeeProfile1 from "@/assets/images/image-employee-profile-1.jpg";
-import employeeProfile2 from "@/assets/images/image-employee-profile-2.jpg";
-import employeeProfile3 from "@/assets/images/image-employee-profile-3.jpg";
-import Partnership1 from "@/assets/icons/partnership-1.svg";
-import Partnership2 from "@/assets/icons/partnership-2.svg";
-import Partnership3 from "@/assets/icons/partnership-3.svg";
-import Partnership4 from "@/assets/icons/partnership-4.svg";
-import Partnership5 from "@/assets/icons/partnership-5.svg";
-import Partnership6 from "@/assets/icons/partnership-6.svg";
-import Partnership7 from "@/assets/icons/partnership-7.svg";
+import illustration1 from "@/assets/images/illustration-1.webp";
+import bgImage1 from "@/assets/images/bg-image-1.webp";
+import bgImage2 from "@/assets/images/bg-image-2.webp";
+// import bgGeneral from "@/assets/images/bg-general.webp";
+import illustration2 from "@/assets/images/illustration-2.webp";
 import Button from "@/components/atoms/button";
 import classNames from "./home.module.scss";
 import Image from "next/image";
-import { ArrowRight, ChevronRight } from "lucide-react";
-import { services } from "@/constants/config";
-import TextContent from "@/components/molecules/text-quote";
-import clsx from "clsx";
-import CardInfoImage from "@/components/molecules/card-info-image";
+import { Check } from "lucide-react";
+import alibabacloud from "@/assets/images/partnership/alibabacloud.webp";
+import cloudhost from "@/assets/images/partnership/cloudhost.webp";
+import doku from "@/assets/images/partnership/doku.webp";
+import duitku from "@/assets/images/partnership/duitku.webp";
+import finnet from "@/assets/images/partnership/finnet.webp";
+import fortinet from "@/assets/images/partnership/fortinet.webp";
+import indonet from "@/assets/images/partnership/indonet.webp";
+import indosat from "@/assets/images/partnership/indosat.webp";
+import mikrotik from "@/assets/images/partnership/mikrotik.webp";
+import ofon from "@/assets/images/partnership/ofon.webp";
+import rujie from "@/assets/images/partnership/rujie.webp";
+import telkomsel from "@/assets/images/partnership/telkomsel.webp";
+import tuv from "@/assets/images/partnership/tuv.webp";
+import xl from "@/assets/images/partnership/xl.webp";
+
+const partnership = [
+  {
+    key: "alibabacloud",
+    image: alibabacloud,
+  },
+  {
+    key: "cloudhost",
+    image: cloudhost,
+  },
+  {
+    key: "doku",
+    image: doku,
+  },
+  {
+    key: "duitku",
+    image: duitku,
+  },
+  {
+    key: "finnet",
+    image: finnet,
+  },
+  {
+    key: "fortinet",
+    image: fortinet,
+  },
+  {
+    key: "indonet",
+    image: indonet,
+  },
+  {
+    key: "indosat",
+    image: indosat,
+  },
+  {
+    key: "mikrotik",
+    image: mikrotik,
+  },
+  {
+    key: "ofon",
+    image: ofon,
+  },
+  {
+    key: "rujie",
+    image: rujie,
+  },
+  {
+    key: "telkomsel",
+    image: telkomsel,
+  },
+  {
+    key: "tuv",
+    image: tuv,
+  },
+  {
+    key: "xl",
+    image: xl,
+  },
+];
 
 const HomeContainer = () => {
-  const router = useRouter();
   return (
     <>
       <div className={classNames.section1}>
-        <div className={classNames.section1Image}>
-          <Image src={heroImageSection1} alt="logo" fill objectFit="cover" />
-        </div>
+        {/* <div className={classNames.sectionImage}>
+          <Image src={bgGeneral} alt="logo" fill objectFit="cover" />
+        </div> */}
         <div className={classNames.content}>
-          <p className={classNames.text}>
-            Driving Success
-            <br />
-            Through Technology
-          </p>
-          <p className={classNames.description}>
-            Customer focused IT Support, Cyber Security and Communications
-            solutions, from one of the UK’s leading Managed Service Providers.
-          </p>
-          <div className={classNames.buttonWrapper}>
-            <Button endIcon={<ChevronRight size={18} />} variant="secondary">
-              Let&apos;s Talk About Your Business
-            </Button>
-            <Button endIcon={<ChevronRight size={18} />} variant="secondary">
-              Success Stories
-            </Button>
+          <div className={classNames.contentSection}>
+            <p className={classNames.text}>
+              Driving Success
+              <br />
+              <span>Through Innovation</span>
+            </p>
+            <p className={classNames.description}>
+              Customer oriented services in Fintech Aplication Development,
+              Cyber Security, Digital Marketing and IT Managed Service.
+            </p>
+            <div className={classNames.buttonWrapper}>
+              <Button>Talk With Us</Button>
+            </div>
+          </div>
+          <div className={classNames.illustration}>
+            <div>
+              <Image
+                src={illustration1}
+                alt="illustration"
+                sizes="100vw"
+                style={{ width: "100%", height: "auto" }}
+              />
+            </div>
           </div>
         </div>
       </div>
       <div className={classNames.section2}>
+        <div className={classNames.section2Image}>
+          <Image
+            src={bgImage1}
+            alt="logo"
+            fill
+            objectFit="cover"
+            objectPosition="top"
+          />
+        </div>
         <div className={classNames.content}>
-          <div className={classNames.illustration}>
-            <Image
-              src={employeeImage1}
-              alt="logo"
-              fill
-              objectFit="cover"
-              objectPosition="center"
-            />
-          </div>
           <div className={classNames.contentSection}>
-            <TextContent
-              title="YOUR TECHNOLOGY PARTNER"
-              subTitle="Your Trusted IT and Technology Partner"
-              description={
-                <>
-                  We’re a customer-orientated Managed Service Provider; a single
-                  source solution of innovative Managed IT services and
-                  solutions across the UK.
-                  <br />
-                  <br /> With comprehensive expertise in all things IT, cyber
-                  security, communications and business software, we have
-                  developed a growing reputation of the go-to technology
-                  experts.
-                </>
-              }
-            />
+            <p className={classNames.title}>
+              Your Trusted IT and Technology Partner
+            </p>
+            <p className={classNames.description}>
+              We’re a customer-orientated company with a comprehensive solution
+              of innovative Managed IT services and solutions across Asia.{" "}
+              <br />
+              <br />
+              With an extensive experience in delivering services in financial
+              technology (fintech) application development, cyber security,
+              digital marketing, and IT managed service, we have developed a
+              growing reputation of the go-to technology experts.
+            </p>
           </div>
         </div>
       </div>
       <div className={classNames.section3}>
+        <div className={classNames.sectionImage}>
+          <Image
+            src={bgImage2}
+            alt="logo"
+            fill
+            objectFit="cover"
+            objectPosition="top"
+          />
+        </div>
         <div className={classNames.content}>
-          <p className={classNames.bgText}>OUR SERVICES</p>
-          <p className={classNames.title}>OUR SERVICES</p>
-          <p className={classNames.subTitle}>How We Can Help You</p>
-          <p className={classNames.description}>
-            Our wide-ranging Managed IT services, from business-critical Cyber
-            Security to long-term remote working solutions, provides you with a
-            single-source solution that drives your business forward.
-          </p>
-          <div className={classNames.serviceWrapper}>
-            {services.map((service) => (
-              <div className={classNames.service} key={service.path}>
-                <div className={classNames.serviceImage}>
-                  <service.icon />
-                </div>
-                <p className={classNames.serviceName}>{service.name}</p>
-                <p className={classNames.serviceDescription}>
-                  {service.description}
-                </p>
-                <Button
-                  endIcon={<ChevronRight size={18} />}
-                  className={classNames.button}
-                  onClick={() => router.push(service.path)}
-                >
-                  Find Out More
-                </Button>
-              </div>
-            ))}
+          <div className={classNames.contentSection}>
+            <p className={classNames.title}>How Can Help You</p>
+            <p className={classNames.description}>
+              Our 4-core Managed IT services, from business-critical Cyber
+              Security to long-term remote working solutions, provides you with
+              a single-source solution that drives your business forward.
+            </p>
+            <Button className={classNames.button}>Our Service</Button>
           </div>
         </div>
       </div>
       <div className={classNames.section4}>
+        {/* <div className={classNames.sectionImage}>
+          <Image src={bgGeneral} alt="logo" fill objectFit="cover" />
+        </div> */}
         <div className={classNames.content}>
-          <div className={classNames.illustration}>
-            <Image
-              src={employeeImage2}
-              alt="logo"
-              fill
-              objectFit="cover"
-              objectPosition="center"
-            />
-          </div>
           <div className={classNames.contentSection}>
-            <TextContent
-              title="Why Partner With Us"
-              subTitle="Technology Driven, Service Led"
-              description="
-                Though technology-driven, we’re service-led. Our customers are
-                our number one priority and we strive to deliver a service
-                experience that’s second to none."
-            />
+            <p className={classNames.text}>
+              <span>Why Partner With Us ?</span>
+              <br />
+              Technology Driven, Service Led
+            </p>
+            <p className={classNames.description}>
+              Though technology-driven, we’re service-led. Our customers are our
+              number one priority and we strive to deliver a service experience
+              that’s second to none.
+            </p>
             <ul className={classNames.whyList}>
               <li className={classNames.whyListItem}>
-                <ArrowRight size={30} />
+                <div className={classNames.icon}>
+                  <Check size={25} strokeWidth={3} />
+                </div>
                 People before technology.
               </li>
               <li className={classNames.whyListItem}>
-                <ArrowRight size={30} />
+                <div className={classNames.icon}>
+                  <Check size={25} strokeWidth={3} />
+                </div>
                 Dedicated to building trusted relationships.
               </li>
               <li className={classNames.whyListItem}>
-                <ArrowRight size={30} />
+                <div className={classNames.icon}>
+                  <Check size={25} strokeWidth={3} />
+                </div>
                 Access to technology thought leaders.
               </li>
               <li className={classNames.whyListItem}>
-                <ArrowRight size={30} />
+                <div className={classNames.icon}>
+                  <Check size={25} strokeWidth={3} />
+                </div>
                 Certified and experienced team.
               </li>
               <li className={classNames.whyListItem}>
-                <ArrowRight size={30} />
+                <div className={classNames.icon}>
+                  <Check size={25} strokeWidth={3} />
+                </div>
                 Technical talk translated into plain English.
               </li>
             </ul>
-            <Button
-              endIcon={<ChevronRight size={18} />}
-              className={classNames.button}
-              onClick={() => router.push("/about-us")}
-            >
-              More About Us
-            </Button>
+          </div>
+          <div className={classNames.illustration}>
+            <div>
+              <Image
+                src={illustration2}
+                alt="illustration"
+                sizes="100vw"
+                style={{ width: "100%", height: "auto" }}
+              />
+            </div>
           </div>
         </div>
       </div>
       <div className={classNames.section5}>
+        {/* <div className={classNames.sectionImage}>
+          <Image src={bgGeneral} alt="logo" fill objectFit="cover" />
+        </div> */}
         <div className={classNames.content}>
-          <p className={classNames.bgText}>Testimonials</p>
-          <div className={classNames.testimonialWrapper}>
-            <TextContent
-              className={classNames.textContent}
-              title="Testimonials"
-              subTitle="Their Words, Not Ours..."
-              description="From the maritime industry to mineral explorers, we’ve worked with diverse clients to provide a new perspective on how technology can drive innovation."
-            />
-            <div className={classNames.testimonial1}>
-              <div
-                className={clsx(
-                  classNames.testimonialCard,
-                  classNames.secondary
-                )}
-              >
-                <p className={classNames.testimonialText}>
-                  {`"Aztek gets what we do as a business, without us even having to explain it! The longer we've been with them, the more they have got to know our systems. And it's not just their IT - their full range of development services have helped drive our wider business objectives."`}
-                </p>
-                <div className={classNames.testimonialInfo}>
-                  <div className={classNames.testimonialImage}>
-                    <Image
-                      src={employeeProfile1}
-                      alt="logo"
-                      fill
-                      objectFit="cover"
-                    />
-                  </div>
-                  <div className={classNames.testimonialUser}>
-                    <p>Byron Petzer</p>
-                    <p>Keter UK</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className={classNames.testimonial2}>
-              <div className={classNames.testimonialCard}>
-                <p className={classNames.testimonialText}>
-                  {`"We found Aztek's pricing structure revolutionary. Instead of the headache of hourly billing and hidden costs, their transparent, fixed price structure meant we knew exactly what to expect and could budget effectively."`}
-                </p>
-                <div className={classNames.testimonialInfo}>
-                  <div className={classNames.testimonialImage}>
-                    <Image
-                      src={employeeProfile2}
-                      alt="logo"
-                      width={100}
-                      height={100}
-                      className={classNames.testimonialImage}
-                    />
-                  </div>
-                  <div className={classNames.testimonialUser}>
-                    <p>Byron Petzer</p>
-                    <p>Keter UK</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className={classNames.testimonial3}>
-              <div className={classNames.testimonialCard}>
-                <p className={classNames.testimonialText}>
-                  {`""Aztek are more than our IT support company - they are an extension of our business. From building our IT infrastructure to looking at new ways we can innovate with technology, I cannot emphasise enough how pleased we are to be partnered with them."`}
-                </p>
-                <div className={classNames.testimonialInfo}>
-                  <div className={classNames.testimonialImage}>
-                    <Image
-                      src={employeeProfile3}
-                      alt="logo"
-                      width={100}
-                      height={100}
-                      className={classNames.testimonialImage}
-                    />
-                  </div>
-                  <div className={classNames.testimonialUser}>
-                    <p>Byron Petzer</p>
-                    <p>Keter UK</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className={classNames.section6}>
-        <div className={classNames.content}>
-          <CardInfoImage
-            title="FREE IT AUDIT"
-            subTitle="Arrange Your Free IT Audit"
-            description={
-              <>
-                Want to discover if your systems are operating efficiently, your
-                assets are safely protected and your IT is contributing to your
-                business objectives? <br />
-                <br />
-                Arrange a free, no obligation IT audit today.
-              </>
-            }
-            image={employeeImage3}
-            className={classNames.cardInfoImage}
-            button={{
-              label: "Arrage Audit",
-              onClick: () => {},
-            }}
-          />
-          <div className={classNames.partnership}>
-            <p className={classNames.title}>OUR PARTNERSHIPS</p>
-            <p className={classNames.subTitle}>We Partner With Only The Best</p>
-            <p className={classNames.description}>
-              We take a lot of care over the suppliers we work with because we
-              know our clients rely on us as their trusted and impartial
-              technology advisor.
+          <div className={classNames.contentSection}>
+            <p className={classNames.text}>
+              <span>Our Partnership</span>
+              <br />
+              We Partner With Only The Best
             </p>
-            <div className={classNames.images}>
-              <Partnership1 />
-              <Partnership2 />
-              <Partnership3 />
-              <Partnership4 />
-              <Partnership5 />
-              <Partnership6 />
-              <Partnership7 />
-            </div>
+            <p className={classNames.description}>
+              We work with well-known suppliers and partners around the globe to
+              ensure that our customers experience best services and can rely on
+              us as their trusted technology consultant.
+            </p>
+          </div>
+          <div className={classNames.partnership}>
+            {partnership.map((item) => (
+              <Image
+                key={item.key}
+                src={item.image}
+                alt={item.key}
+                width={150}
+              />
+            ))}
           </div>
         </div>
       </div>

@@ -15,11 +15,11 @@
     min-width: auto;
     padding: 40px;
     box-sizing: border-box;
+    background-color: colors.$slate-800;
     @include screen.breakpoint-md {
       min-width: 400px;
       width: 400px;
     }
-    background-color: colors.$slate-800;
     > p:nth-child(1) {
       font-family: var(--font-open-sans);
       font-size: 15px;

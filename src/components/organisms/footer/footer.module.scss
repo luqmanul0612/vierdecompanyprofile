@@ -5,41 +5,31 @@
   display: flex;
   flex-direction: column;
   width: 100%;
+  background-color: colors.$slate-100;
   .stayUpdate {
     display: flex;
     justify-content: center;
-    background-color: colors.$slate-500;
     padding: 80px 40px;
     > div {
       @include screen.main;
       gap: 40px;
       display: flex;
-      flex-direction: column;
-      @include screen.breakpoint-md {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-      }
+      justify-content: center;
+      align-items: center;
       .textWrapper {
         display: flex;
         flex-direction: column;
         gap: 40px;
         .title {
-          font-size: 42px;
+          font-size: 30px;
           font-weight: 700;
           font-family: var(--font-open-sans);
           margin: 0;
-          color: #fff;
-        }
-        .description {
-          font-size: 17px;
-          margin: 0;
-          line-height: 1.8;
-          color: #fff;
+          color: colors.$slate-900;
         }
       }
       .inputWrapper {
         display: flex;
-        flex-direction: column;
         gap: 20px;
       }
     }
@@ -48,7 +38,6 @@
     display: flex;
     justify-content: center;
     width: 100%;
-    background-color: colors.$slate-700;
     > div {
       @include screen.main;
       display: flex;
@@ -68,7 +57,30 @@
         .text {
           font-size: 16px;
           line-height: 1.8;
-          color: #fff;
+          color: colors.$slate-900;
+        }
+        .buttonWrapper {
+          display: flex;
+          gap: 10px;
+          display: flex;
+          > button {
+            background-color: transparent;
+            height: 50px;
+            min-width: 50px;
+            border-radius: 100%;
+            outline: none;
+            border: none;
+            cursor: pointer;
+            background-color: colors.$slate-200;
+            transition: 0.1s background-color ease-in-out;
+            &:hover {
+              background-color: colors.$sky-300;
+            }
+            > svg {
+              width: 20px;
+              color: colors.$slate-900;
+            }
+          }
         }
       }
       .contentRight {
@@ -83,35 +95,6 @@
       }
     }
   }
-  .info {
-    display: flex;
-    justify-content: center;
-    height: 70px;
-    background-color: colors.$slate-900;
-    > div {
-      @include screen.main;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      > p:nth-child(1) {
-        font-size: 16px;
-        color: #fff;
-      }
-      .links {
-        display: flex;
-        gap: 30px;
-        align-items: center;
-        .linkItem {
-          cursor: pointer;
-          > svg {
-            width: 20px;
-            height: 20px;
-            color: #fff;
-          }
-        }
-      }
-    }
-  }
 }
 
 .menuList {
@@ -121,14 +104,11 @@
   gap: 20px;
   .title {
     font-family: var(--font-open-sans);
-    font-size: 20px;
-    color: #fff;
+    font-size: 25px;
+    color: colors.$slate-900;
     font-weight: 700;
     margin: 0;
     text-align: start;
-    @include screen.breakpoint-md {
-      text-align: end;
-    }
   }
   > ul {
     display: flex;
@@ -138,18 +118,28 @@
     margin: 0;
     padding: 0;
     > li {
-      font-size: 16px;
-      color: #fff;
+      display: flex;
+      gap: 10px;
+      align-items: start;
       line-height: 1.6;
-      cursor: pointer;
-      text-align: start;
-      @include screen.breakpoint-md {
-        text-align: end;
-      }
-      &:hover {
-        color: colors.$sky-500;
-      }
       transition: 0.1s color ease-in-out;
+      .icon {
+        padding: 5px;
+      }
+      > p {
+        font-size: 16px;
+        color: colors.$slate-900;
+        font-weight: 500;
+        margin: 0;
+      }
+      &.linkItem {
+        cursor: pointer;
+        &:hover {
+          > p {
+            color: colors.$sky-500;
+          }
+        }
+      }
     }
   }
 }
