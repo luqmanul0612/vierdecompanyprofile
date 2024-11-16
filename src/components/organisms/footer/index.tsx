@@ -61,13 +61,13 @@ const Footer = () => {
                 </li>
                 <li
                   className={classNames.linkItem}
-                  onClick={() => router.push("/about-us")}
+                  onClick={() => router.push("/product-and-solution")}
                 >
                   <p>Product & Solution</p>
                 </li>
                 <li
                   className={classNames.linkItem}
-                  onClick={() => router.push("/about-us")}
+                  onClick={() => router.push("/#partnership")}
                 >
                   <p>Partnership</p>
                 </li>

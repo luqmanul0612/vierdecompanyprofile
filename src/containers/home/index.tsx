@@ -228,7 +228,7 @@ const HomeContainer = () => {
           </div>
         </div>
       </div>
-      <div className={classNames.section5}>
+      <div className={classNames.section5} id="partnership">
         {/* <div className={classNames.sectionImage}>
           <Image src={bgGeneral} alt="logo" fill objectFit="cover" />
         </div> */}
