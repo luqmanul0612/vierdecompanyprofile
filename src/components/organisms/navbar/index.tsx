@@ -1,6 +1,6 @@
 "use client";
 
-import { ChevronDown } from "lucide-react";
+import { AlignRight, ChevronDown, X } from "lucide-react";
 import classNames from "./navbar.module.scss";
 import Image from "next/image";
 import Logo from "@/assets/images/company-logo.webp";
@@ -10,6 +10,7 @@ import React, { FC, useEffect } from "react";
 import { Unarray } from "@/utils/styles/types";
 import { useRouter } from "next/navigation";
 import clsx from "clsx";
+import * as Dialog from "@radix-ui/react-dialog";
 
 const Navbar = () => {
   const [active, setActive] = React.useState(false);
@@ -31,6 +32,7 @@ const Navbar = () => {
             <div className={classNames.logo} onClick={() => router.push("/")}>
               <Image src={Logo} alt="logo" />
             </div>
+            <MobileMenu />
             <NavigationMenu.Root className={classNames.NavigationMenuRoot}>
               <NavigationMenu.List className={classNames.NavigationMenuList}>
                 {navbarMenu.map((item) => (
@@ -91,3 +93,46 @@ const ListItem: FC<Unarray<typeof navbarMenu>> = (props) => {
 };
 
 ListItem.displayName = "ListItem";
+
+const MobileMenu = () => (
+  <Dialog.Root>
+    <Dialog.Trigger asChild className={classNames.mobileMenuTrigger}>
+      <button>
+        <AlignRight />
+      </button>
+    </Dialog.Trigger>
+    <Dialog.Portal>
+      <Dialog.Overlay className="DialogOverlay" />
+      <Dialog.Content className="DialogContent">
+        <Dialog.Title className="DialogTitle">Edit profile</Dialog.Title>
+        <Dialog.Description className="DialogDescription">
+          Make changes to your profile here. Click save when
+        </Dialog.Description>
+        <fieldset className="Fieldset">
+          <label className="Label" htmlFor="name">
+            Name
+          </label>
+          <input className="Input" id="name" defaultValue="Pedro Duarte" />
+        </fieldset>
+        <fieldset className="Fieldset">
+          <label className="Label" htmlFor="username">
+            Username
+          </label>
+          <input className="Input" id="username" defaultValue="@peduarte" />
+        </fieldset>
+        <div
+          style={{ display: "flex", marginTop: 25, justifyContent: "flex-end" }}
+        >
+          <Dialog.Close asChild>
+            <button className="Button green">Save changes</button>
+          </Dialog.Close>
+        </div>
+        <Dialog.Close asChild>
+          <button className="IconButton" aria-label="Close">
+            <X />
+          </button>
+        </Dialog.Close>
+      </Dialog.Content>
+    </Dialog.Portal>
+  </Dialog.Root>
+);
