@@ -11,6 +11,7 @@ import { Unarray } from "@/utils/styles/types";
 import { useRouter } from "next/navigation";
 import clsx from "clsx";
 import * as Dialog from "@radix-ui/react-dialog";
+import * as Collapsible from "@radix-ui/react-collapsible";
 
 const Navbar = () => {
   const [active, setActive] = React.useState(false);
@@ -94,45 +95,86 @@ const ListItem: FC<Unarray<typeof navbarMenu>> = (props) => {
 
 ListItem.displayName = "ListItem";
 
-const MobileMenu = () => (
-  <Dialog.Root>
-    <Dialog.Trigger asChild className={classNames.mobileMenuTrigger}>
-      <button>
-        <AlignRight />
-      </button>
-    </Dialog.Trigger>
-    <Dialog.Portal>
-      <Dialog.Overlay className="DialogOverlay" />
-      <Dialog.Content className="DialogContent">
-        <Dialog.Title className="DialogTitle">Edit profile</Dialog.Title>
-        <Dialog.Description className="DialogDescription">
-          Make changes to your profile here. Click save when
-        </Dialog.Description>
-        <fieldset className="Fieldset">
-          <label className="Label" htmlFor="name">
-            Name
-          </label>
-          <input className="Input" id="name" defaultValue="Pedro Duarte" />
-        </fieldset>
-        <fieldset className="Fieldset">
-          <label className="Label" htmlFor="username">
-            Username
-          </label>
-          <input className="Input" id="username" defaultValue="@peduarte" />
-        </fieldset>
-        <div
-          style={{ display: "flex", marginTop: 25, justifyContent: "flex-end" }}
-        >
+const MobileMenu = () => {
+  const [open, setOpen] = React.useState(false);
+
+  return (
+    <Dialog.Root open={open} onOpenChange={setOpen}>
+      <Dialog.Trigger asChild className={classNames.mobileMenuTrigger}>
+        <button>
+          <AlignRight size={28} />
+        </button>
+      </Dialog.Trigger>
+      <Dialog.Portal>
+        <Dialog.Overlay className={classNames.DialogOverlay} />
+        <Dialog.Content className={classNames.DialogContent}>
+          <Dialog.Title style={{ display: "none" }} />
+          <Dialog.Description style={{ display: "none" }} />
+          <div className={classNames.menu}>
+            {navbarMenu.map((item) => (
+              <MobileMenuItem
+                key={item.path}
+                {...item}
+                onClose={() => setOpen(false)}
+              />
+            ))}
+          </div>
           <Dialog.Close asChild>
-            <button className="Button green">Save changes</button>
+            <button className={classNames.IconButton} aria-label="Close">
+              <X size={30} />
+            </button>
           </Dialog.Close>
-        </div>
-        <Dialog.Close asChild>
-          <button className="IconButton" aria-label="Close">
-            <X />
-          </button>
-        </Dialog.Close>
-      </Dialog.Content>
-    </Dialog.Portal>
-  </Dialog.Root>
-);
+        </Dialog.Content>
+      </Dialog.Portal>
+    </Dialog.Root>
+  );
+};
+
+type MobileMenuItemProps = Unarray<typeof navbarMenu> & {
+  onClose: () => void;
+  className?: string;
+};
+const MobileMenuItem: FC<MobileMenuItemProps> = (props) => {
+  const router = useRouter();
+  const onClickItem = () => {
+    if (!props.items?.length) {
+      router.push(props.path);
+      props.onClose();
+    }
+  };
+  if (props.items?.length)
+    return (
+      <Collapsible.Root className={classNames.mobileMenuItemCollapible}>
+        <Collapsible.Trigger asChild>
+          <div
+            className={clsx(classNames.mobileMenuItem, props.className)}
+            onClick={onClickItem}
+          >
+            {!!props.items?.length && <ChevronDown size={20} aria-hidden />}
+            <div>{props.name}</div>
+          </div>
+        </Collapsible.Trigger>
+        <Collapsible.Content className={classNames.mobileMenuContent}>
+          <div>
+            {props.items?.map((subItem) => (
+              <MobileMenuItem
+                key={subItem.path}
+                {...subItem}
+                className={classNames.subItem}
+                onClose={props.onClose}
+              />
+            ))}
+          </div>
+        </Collapsible.Content>
+      </Collapsible.Root>
+    );
+  return (
+    <div
+      className={clsx(classNames.mobileMenuItem, props.className)}
+      onClick={onClickItem}
+    >
+      {!!props.items?.length && <ChevronDown size={20} aria-hidden />}
+      <div>{props.name}</div>
+    </div>
+  );
+};
