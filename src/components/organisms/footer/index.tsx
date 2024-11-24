@@ -55,7 +55,7 @@ const Footer = () => {
               <ul>
                 <li
                   className={classNames.linkItem}
-                  onClick={() => router.push("/about-us")}
+                  onClick={() => router.push("/our-company")}
                 >
                   <p>About Us</p>
                 </li>
