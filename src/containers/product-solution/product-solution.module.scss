@@ -6,8 +6,9 @@
   flex-direction: column;
   align-items: center;
   position: relative;
+  justify-content: center;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   .sectionImage {
     position: absolute;
     width: 100%;
@@ -19,20 +20,31 @@
     @include screen.main;
     height: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    padding: 0 40px;
+    padding: 20px;
     box-sizing: border-box;
     z-index: 1;
     width: 100%;
     gap: 40px;
+    margin-top: 100px;
+    @include screen.breakpoint-sm {
+      padding: 40px;
+    }
+    @include screen.breakpoint-lg {
+      flex-direction: row;
+      margin-top: 0;
+    }
     .contentSection {
       display: flex;
       flex-direction: column;
-      width: 55%;
       justify-content: center;
       gap: 20px;
+      @include screen.breakpoint-lg {
+        width: 55%;
+      }
       .text {
-        font-size: 40px;
+        font-size: 30px;
         font-weight: 700;
         color: colors.$slate-900;
         margin: 0;
@@ -64,12 +76,20 @@
       }
     }
     .illustration {
-      width: 45%;
       display: flex;
+      width: 100%;
       align-items: center;
+      justify-content: center;
+      @include screen.breakpoint-lg {
+        width: 45%;
+      }
       > div {
         position: relative;
         width: 100%;
+        max-width: 500px;
+        @include screen.breakpoint-lg {
+          max-width: unset;
+        }
       }
     }
   }
@@ -87,10 +107,14 @@
   @include section;
   background-color: #fff;
   .content {
-    flex-direction: row-reverse;
+    @include screen.breakpoint-lg {
+      flex-direction: row-reverse;
+    }
     .contentSection {
       .text {
-        text-align: end;
+        @include screen.breakpoint-lg {
+          text-align: end;
+        }
       }
     }
   }
@@ -99,10 +123,14 @@
   @include section;
   background-color: colors.$slate-100;
   .content {
-    flex-direction: row-reverse;
+    @include screen.breakpoint-lg {
+      flex-direction: row-reverse;
+    }
     .contentSection {
       .text {
-        text-align: end;
+        @include screen.breakpoint-lg {
+          text-align: end;
+        }
       }
     }
   }
@@ -111,10 +139,14 @@
   @include section;
   background-color: #fff;
   .content {
-    flex-direction: row-reverse;
+    @include screen.breakpoint-lg {
+      flex-direction: row-reverse;
+    }
     .contentSection {
       .text {
-        text-align: end;
+        @include screen.breakpoint-lg {
+          text-align: end;
+        }
       }
     }
   }

@@ -9,23 +9,39 @@
   width: 100%;
   height: 100vh;
   background-color: colors.$slate-100;
+  @include screen.breakpoint-lg {
+    height: 100vh;
+  }
   .sectionImage {
     position: absolute;
     width: 100%;
     height: 100%;
     left: 0;
     top: 0;
+    opacity: 0.5;
+    @include screen.breakpoint-lg {
+      opacity: 1;
+    }
   }
   .content {
     @include screen.main;
     height: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    padding: 0 40px;
+    padding: 20px;
     padding-top: 50px;
     box-sizing: border-box;
     z-index: 1;
     width: 100%;
+    margin-top: 100px;
+    @include screen.breakpoint-sm {
+      padding: 40px;
+    }
+    @include screen.breakpoint-lg {
+      flex-direction: row;
+      margin-top: 0;
+    }
     .contentSection {
       display: flex;
       flex-direction: column;
@@ -56,10 +72,10 @@
         line-height: 1.7;
         margin: 0;
         margin-top: 20px;
-        max-width: 50%;
         z-index: 2;
         @include screen.breakpoint-lg {
           font-size: 18px;
+          max-width: 50%;
         }
       }
       .buttonWrapper {
@@ -86,22 +102,32 @@
     height: 100%;
     left: 0;
     top: 0;
+    opacity: 0;
+    @include screen.breakpoint-lg {
+      opacity: 1;
+    }
   }
   .content {
     @include screen.main;
     height: 100%;
     display: flex;
     justify-content: flex-end;
-    padding: 0 40px;
+    padding: 20px;
     padding-top: 50px;
     box-sizing: border-box;
     z-index: 1;
     width: 100%;
+    @include screen.breakpoint-sm {
+      padding: 40px;
+    }
     .contentSection {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      width: 50%;
+      width: 100%;
+      @include screen.breakpoint-lg {
+        width: 50%;
+      }
       .description {
         font-size: 20px;
         color: colors.$slate-700;

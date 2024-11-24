@@ -41,12 +41,23 @@
     width: 100%;
     .logo {
       cursor: pointer;
+      img {
+        height: 45px;
+        width: auto;
+        @include screen.breakpoint-lg {
+          height: 50px;
+          width: auto;
+        }
+      }
     }
     > div {
       @include screen.main;
       display: flex;
       justify-content: space-between;
-      padding: 20px 40px;
+      padding: 20px;
+      @include screen.breakpoint-sm {
+        padding: 20px 40px;
+      }
       box-sizing: border-box;
       .NavigationMenuRoot {
         display: none;

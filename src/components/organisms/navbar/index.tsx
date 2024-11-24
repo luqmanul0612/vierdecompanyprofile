@@ -29,12 +29,7 @@ const Navbar = () => {
         <div className={classNames.navbar}>
           <div>
             <div className={classNames.logo} onClick={() => router.push("/")}>
-              <Image
-                src={Logo}
-                alt="logo"
-                width={200}
-                className={classNames.logo}
-              />
+              <Image src={Logo} alt="logo" />
             </div>
             <NavigationMenu.Root className={classNames.NavigationMenuRoot}>
               <NavigationMenu.List className={classNames.NavigationMenuList}>
