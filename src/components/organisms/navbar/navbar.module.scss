@@ -53,7 +53,7 @@
         height: fit-content;
         position: relative;
 
-        @include screen.breakpoint-md {
+        @include screen.breakpoint-lg {
           display: flex;
         }
         .NavigationMenuList {

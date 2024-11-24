@@ -96,8 +96,8 @@ const OurCompanyContainer = () => {
                 </p>
               </div>
             </div>
-            <div />
-            <div />
+            <div className={classNames.additionalItem} />
+            <div className={classNames.additionalItem} />
             <div className={classNames.gridItem}>
               <div className={classNames.illustration}>
                 <div>

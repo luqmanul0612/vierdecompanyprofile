@@ -8,14 +8,19 @@
   background-color: colors.$slate-100;
   .stayUpdate {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     padding: 80px 40px;
     > div {
       @include screen.main;
       gap: 40px;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
+      @include screen.breakpoint-md {
+        flex-direction: row;
+      }
       .textWrapper {
         display: flex;
         flex-direction: column;
