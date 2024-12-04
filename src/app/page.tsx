@@ -1,3 +1,4 @@
+import FloatingWhatsApp from "@/components/atoms/floating-whatsapp";
 import classNames from "./page.module.scss";
 import Footer from "@/components/organisms/footer";
 import HomeContainer from "@/containers/home";
@@ -7,6 +8,7 @@ export default function Home() {
     <div className={classNames.main}>
       <HomeContainer />
       <Footer />
+      <FloatingWhatsApp />
     </div>
   );
 }

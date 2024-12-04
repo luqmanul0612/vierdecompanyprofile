@@ -1,5 +1,9 @@
 import FinanceIcon from "@/assets/icons/finance.svg";
 
+export const contacts = {
+  whatsapp: "https://wa.link/xpd5rq",
+};
+
 export const services = [
   {
     name: "Financial Technology Application Development",

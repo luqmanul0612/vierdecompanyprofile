@@ -23,6 +23,7 @@ import rujie from "@/assets/images/partnership/rujie.webp";
 import telkomsel from "@/assets/images/partnership/telkomsel.webp";
 import tuv from "@/assets/images/partnership/tuv.webp";
 import xl from "@/assets/images/partnership/xl.webp";
+import { contacts } from "@/constants/config";
 
 const partnership = [
   {
@@ -84,6 +85,9 @@ const partnership = [
 ];
 
 const HomeContainer = () => {
+  const onClickWhatsapp = () => {
+    window.open(contacts.whatsapp, "_blank");
+  };
   return (
     <>
       <div className={classNames.section1}>
@@ -102,7 +106,7 @@ const HomeContainer = () => {
               Cyber Security, Digital Marketing and IT Managed Service.
             </p>
             <div className={classNames.buttonWrapper}>
-              <Button>Talk With Us</Button>
+              <Button onClick={onClickWhatsapp}>Talk With Us</Button>
             </div>
           </div>
           <div className={classNames.illustration}>

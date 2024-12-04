@@ -9,6 +9,7 @@ import Image from "next/image";
 import { Check } from "lucide-react";
 import TextField from "@/components/atoms/textfield";
 import TextArea from "@/components/atoms/textarea";
+import { contacts } from "@/constants/config";
 
 const reasonList = [
   {
@@ -38,6 +39,9 @@ const reasonList = [
 ];
 
 const ContactUsContainer = () => {
+  const onClickWhatsapp = () => {
+    window.open(contacts.whatsapp, "_blank");
+  };
   return (
     <>
       <div className={classNames.section1}>
@@ -52,7 +56,7 @@ const ContactUsContainer = () => {
               we’ll help align our services with your needs.
             </p>
             <div className={classNames.buttonWrapper}>
-              <Button>Talk With Us</Button>
+              <Button onClick={onClickWhatsapp}>Talk With Us</Button>
             </div>
           </div>
         </div>
